@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+
+    <link rel="stylesheet" href="src/style/style.css">
+
+    <title>Tomorrow will rain?</title>
+</head>
+
+<body>
+
+    <div id="content">
+
+        <header id="insertCity">
+            <input class="cityName" type="text" placeholder="adicione sua cidade">
+            <button type="submit">pesquisar<i class="ph ph-map-pin"></i></button>
+        </header>
+
+        <div class="main">
+
+            <div class="cityTemperature">
+                <img class="weatherNow" src="./src/assets/clouds.svg" alt="nuvens">
+
+                <header>
+                    <span class="city"></span>
+                </header>
+
+                <div class="temp">
+                    <strong class="actualTemp">
+                        <span class="temp"></span>
+                        <span>ºC</span>
+                    </strong>
+
+                    <div>
+                        <strong class="maxTemp"></strong>
+                        <strong class="minTemp"></strong>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="wind footer">
+                        <img src="./src/assets/wind.svg" alt="vento">
+                        <div>
+                            <span>Vento</span>
+                            <strong>17<small>Km/h</small></strong>
+                        </div>
+                    </div>
+
+                    <div class="humidity footer">
+                        <img src="./src/assets/humidity.svg" alt="umidade">
+                        <div>
+                            <span>Umidade</span>
+                            <strong><small></small></strong>
+                        </div>
+                    </div>
+
+                    <div class="rain footer">
+                        <img src="./src/assets/rain.svg" class="iconWeather" alt="">
+                        <div>
+                            <span></span>
+                            <strong><small></small></strong>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
+            <div class="airQuality">
+                <header>
+                    <img src="./src/assets/leaf.svg" alt="folha">
+                    <strong>Qualidade do ar</strong>
+                </header>
+                <div class="airQualityMain">
+                    <strong>
+                        <span>Boa</span>
+                        <span>21</span>
+                    </strong>
+                </div>
+                <div class="footer">
+                    <div><span>12.9</span><span>PM2.5</span></div>
+                    <div><span>12.9</span><span>PM10</span></div>
+                    <div><span>2.1</span><span>sO₂</span></div>
+                    <div><span>1.4</span><span>NO₂</span></div>
+                    <div><span>21.9</span><span>O₃</span></div>
+                    <div><span>0.7</span><span>CO</span></div>
+                </div>
+            </div>
+
+            <div class="sunTime">
+
+                <header>
+                    <img src="./src/assets/sunTime.svg" alt="sol">
+                    <strong>Horário do sol</strong>
+                </header>
+
+                <div class="chartComponent">
+
+                    <div class="chart">
+                        <img src="./src/assets/chart.svg">
+                        <div class="main">
+                            <div class="gradient"></div>
+                            <strong class="actualtime"></strong>
+                        </div>
+                        <div class="sun"><span></span></div>
+                    </div>
+
+
+                    <div class="timeLine">
+                        <span class="sunrise"></span>
+                        <span class="sunset"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weekWeatherForecast">
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script type="module" src="./src/scripts/main.js" defer=""></script>
+
+</html>

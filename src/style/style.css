@@ -1,0 +1,611 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    /* 1rem = 10px*/
+    font-size: 62%;
+    --main-color: #6D67D0;
+    --primary-text: #FFFFFF;
+    --light-text: #C2BFF4;
+    --highlighted-text: #87EBCD;
+    --sencondary-text: #E7E6FB;
+    --sencondary-text-light: #DAD8F7;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/background-image.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+#content {
+    width: 121rem;
+    height: 55.0rem;
+}
+
+#content header#insertCity {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    border-radius: 10rem;
+    overflow: hidden;
+}
+
+#content header#insertCity input.cityName {
+    width: 80%;
+    padding: 2rem;
+
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-text);
+
+    outline: none;
+    border: 0;
+
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#content header#insertCity input.cityName::placeholder {
+    color: var(--primary-text);
+}
+
+#content header#insertCity input.cityName:focus-within  {
+    background-color: var(--sencondary-text);
+    color: var(--main-color);
+}
+
+#content header#insertCity button {
+    width: 20%;
+    font-size: 2.6rem;
+    letter-spacing: .1rem;
+    color: var(--primary-text);
+    background-color: #b95cda;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#content .main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3.2rem;
+    grid-template-areas:
+        "cityTemp cityTemp air-quality sun-time"
+        "cityTemp cityTemp day-of-the-week day-of-the-week"
+}
+
+#content .main .cityTemperature {
+    grid-area: cityTemp;
+    border-radius: 1rem;
+    background-color: var(--main-color);
+}
+
+#content .main .airQuality {
+    grid-area: air-quality;
+    background-color: var(--main-color);
+    border-radius: 1rem;
+}
+
+#content .main .sunTime {
+    grid-area: sun-time;
+    background-color: var(--main-color);
+    border-radius: 1rem;
+}
+
+
+#content .main .weekWeatherForecast {
+    grid-area: day-of-the-week;
+    background-color: var(--main-color);
+    border-radius: 1rem;
+}
+
+/* city */
+
+.cityTemperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    padding: 3rem 2rem 2rem;
+
+    background-image: url("../assets/city-temp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cityTemperature img.weatherNow {
+    position: absolute;
+    top: -2rem;
+    left: -6rem;
+
+    animation: shake 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+
+
+.cityTemperature header {
+    width: 100%;
+    text-align: right;
+    font-size: 1.4rem;
+    color: var(--light-text);
+    margin-right: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+}
+
+.cityTemperature header div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.cityTemperature header span.city {
+    text-align: right;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+
+
+.cityTemperature .temp {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cityTemperature .temp .actualTemp {
+    display: flex;
+    align-items: flex-start;
+}
+
+.cityTemperature .temp .actualTemp span:first-child {
+    font-size: 8.8rem;
+    line-height: 7rem;
+    color: var(--primary-text);
+}
+
+.cityTemperature .temp .actualTemp span:last-child {
+    font-size: 3rem;
+    line-height: auto;
+    color: var(--light-text);
+}
+
+.cityTemperature .temp .maxTemp {
+    font-size: 2rem;
+    color: var(--primary-text);
+    margin-left: 2rem;
+}
+
+.cityTemperature .temp .minTemp {
+    font-size: 2rem;
+    color: var(--light-text);
+}
+
+.cityTemperature footer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+/* class - wind - humidity - rain*/
+.cityTemperature footer .footer {
+    background: rgba(101, 96, 200, 0.3);
+    border-radius: .6rem;
+    width: 100%;
+
+    padding: 1.3rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.cityTemperature footer .footer div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cityTemperature footer .footer span {
+    color: var(--sencondary-text);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.cityTemperature footer .footer strong {
+    color: var(--sencondary-text);
+    font-size: 1.8rem;
+}
+
+.cityTemperature footer .footer strong small {
+    color: var(--sencondary-text-light);
+    font-size: 1.4rem;
+    margin-left: .5rem;
+}
+
+
+
+/* "airQuality */
+
+.airQuality {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem 1rem;
+}
+
+
+.airQuality header {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--sencondary-text-light);
+    font-size: 1.6rem;
+}
+
+.airQuality .airQualityMain strong {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.airQuality .airQualityMain strong span:first-child {
+    color: var(--highlighted-text);
+    font-size: 1.8rem;
+}
+
+.airQuality .airQualityMain strong span:last-child {
+    color: var(--sencondary-text);
+    font-size: 4rem;
+}
+
+.airQuality .footer {
+    display: flex;
+    gap: 1rem;
+}
+
+.airQuality .footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.airQuality .footer div span:first-child {
+    color: var(--highlighted-text);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.airQuality .footer div span:last-child {
+    color: var(--sencondary-text-light);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+
+/*sun time */
+
+.sunTime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem 1rem;
+}
+
+
+.sunTime header {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--sencondary-text-light);
+    font-size: 1.6rem;
+}
+
+
+.sunTime .chartComponent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sunTime .chartComponent .chart {
+    position: relative;
+    width: 22rem;
+    height: 11rem;
+    margin-bottom: .5rem;
+
+    border-top-right-radius: 10.5rem;
+    border-top-left-radius: 10.5rem;
+}
+
+.sunTime .chartComponent .chart img {
+    width: 22rem;
+    height: 11rem;
+    background-position: center;
+}
+
+.sunTime .chartComponent .chart .main {
+    width: 21.5rem;
+    border-top-right-radius: 10.5rem;
+    border-top-left-radius: 10.5rem;
+    border-bottom: 0;
+    margin: auto 3px;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+   
+}
+
+.sunTime .chartComponent .chart .main .gradient {
+    background-image: linear-gradient(16deg, #6d67d0, rgb(251 219 96 / 20%));
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0; transition: 4s;
+}
+
+
+.sunTime .chartComponent .main .actualtime {
+    color: var(--primary-text);
+    font-size: 1.4rem;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+}
+
+.sunTime .chartComponent .chart .sun {
+    width: 11rem;
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    transform: rotate(0deg);
+    transform-origin: bottom right;
+    top: 0; transition: 3.2s;
+}
+
+.sunTime .chartComponent .chart .sun span {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(251, 255, 0);
+    border-radius: 50%;
+    transform: translate(-50%,50%);      
+}
+
+
+.sunTime .chartComponent .timeLine {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--primary-text);
+}
+
+
+/*5 days forecast*/
+
+.weekWeatherForecast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.weekWeatherForecast .days {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weekWeatherForecast .days header {
+    color: var(--sencondary-text-light);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+}
+
+.weekWeatherForecast .days img.main {
+    width: 5rem;
+    max-height: 5rem;
+}
+
+.weekWeatherForecast .days footer {
+    font-size: 1.6rem;
+}
+
+.weekWeatherForecast .days footer .maxTemp {
+    font-weight: bold;
+    color: var(--primary-text);
+}
+
+.weekWeatherForecast .days footer .minTemp {
+    font-weight: 400;
+    color: var(--light-text);
+}
+
+
+
+
+
+/* mobile */
+@media only screen and (orientation: portrait) {
+    body {
+        background-image: none;
+        background: rgb(177, 172, 255);
+        background: linear-gradient(106deg, rgba(177, 172, 255, 1) 79%, rgba(135, 235, 205, 1) 100%);
+    }
+
+    #content {
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+    }
+
+    #content header#insertCity input.cityName {
+        width: 60%;
+        font-size: 1.5rem;
+    }
+    
+    #content header#insertCity button {
+        width: 40%;
+        font-size: 2rem;
+    }
+
+    #content .main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cityTemperature header span.city {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .cityTemperature .temp .actualTemp span:first-child {
+        font-size: 4.8rem;
+        line-height: 5rem;
+    }
+
+    .cityTemperature .temp .maxTemp {
+        margin: 0;
+    }
+  
+
+    .cityTemperature footer {
+        margin-top: 2rem;
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .cityTemperature footer .footer {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cityTemperature footer .footer div {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .cityTemperature footer .footer div span,
+    .cityTemperature footer .footer div strong {
+        font-size: 2.5rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .airQuality {
+        gap: 2rem;
+    }
+
+    .airQuality header,
+    .airQuality .footer {
+        font-size: 2rem;
+    }
+
+    .airQuality .footer div span:first-child {
+        font-size: 2.2rem;
+    }
+
+    .airQuality .footer div span:last-child {
+        font-size: 2rem;
+    }
+
+    .sunTime {
+        gap: 2rem;
+    }
+    .sunTime header {
+        font-size: 2rem;
+    }
+
+    .sunTime .chartComponent .timeLine {
+        font-size: 2rem;
+        width: 80%;
+    }
+
+
+    .weekWeatherForecast {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 1rem;
+    }
+
+    .weekWeatherForecast .days {
+        background: rgba(101, 96, 200, 0.7);
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        border-radius: .6rem;
+        gap: 2rem;
+    }
+
+    .weekWeatherForecast .days header,
+    .weekWeatherForecast .days footer {
+        font-size: 2.6rem;
+    }
+
+}
